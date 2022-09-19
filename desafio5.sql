@@ -1,0 +1,2 @@
+SELECT * FROM products
+LIMIT 6 OFFSET 3;
