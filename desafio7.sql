@@ -1,2 +1,3 @@
-SELECT * FROM products
-ORDER BY id DESC;
+SELECT id FROM products
+ORDER BY id DESC
+LIMIT 5;
