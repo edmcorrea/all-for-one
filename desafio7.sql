@@ -1,2 +1,2 @@
 SELECT id FROM products
-LIMIT 5;
+LIMIT 5 OFFSET 40;
