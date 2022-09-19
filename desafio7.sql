@@ -1,2 +1,2 @@
-SELECT id FROM products
-LIMIT 5 OFFSET 40;
+SELECT * FROM products
+ORDER BY id DESC;
