@@ -86,6 +86,19 @@ Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://
   - **:warning: Atenção:** O **git** dentro do container não vem configurado com suas credenciais. Ou faça os commits fora do container, ou configure as suas credenciais do git dentro do container.
 
   - **:warning: Atenção:** Não rode o comando npm audit fix! Ele atualiza várias dependências do projeto, e essa atualização gera conflitos com o avaliador.
+  
+  - **:warning: Atenção:** Caso você esteja usando macOS e ao executar o `docker-compose up -d` se depare com o seguinte erro:
+
+  ~~~bash
+  The Compose file './docker-compose.yml' is invalid because:
+  Unsupported config option for services.db: 'platform'
+  Unsupported config option for services.node: 'platform'
+  ~~~
+
+> Foram encontradas 2 possíveis soluções para este problema:
+> 1. Você pode adicionar manualmente a option `platform: linux/amd64` no service do banco de dados no arquivo docker-compose.yml do projeto, mas essa é uma solução local e você deverá reproduzir isso para os outros projetos.
+> 2. Você pode adicionar manualmente nos arquivos .bashrc, .zshenv ou .zshrc do seu computador a linha `export DOCKER_DEFAULT_PLATFORM=linux/amd64`, essa é uma solução global.
+> As soluções foram com base [nesta fonte](https://stackoverflow.com/a/69636473).
 
   - ✨ **Dica:** A extensão `Remote - Containers` (que estará na seção de extensões recomendadas do VS Code) é indicada para que você possa desenvolver sua aplicação no container Docker direto no VS Code, como você faz com seus arquivos locais.
 
@@ -456,7 +469,7 @@ Monte queries para encontrar as informações esperadas pelos desafios:
 
   ---
 
-22 - Atualize os dados de `discount` do `order_details` para 15.
+22 - Atualize todos os dados de `discount` do `order_details` para 15.
 
 ⚠️ Para testar localmente, pode ser necessário utilização do SAFE UPDATE, porém **não é necessário adicionar a instrução do SAFE UPDATE no arquivo `desafio22.sql` junto a query**, pois o próprio avaliador irá ajustar isso.
 
